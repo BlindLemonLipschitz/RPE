@@ -16,7 +16,9 @@
             user-select: none;
             -webkit-user-select: none;
            } 
-       
+       .alert-primary {
+           margin-top: 20px;
+       }
        button {
            padding: 5px;
            margin: 2px 2px 2px 2px;

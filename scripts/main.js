@@ -1,6 +1,7 @@
-var chart = [];
-var mode = true;
+// var chart = [];
+var weightsNeededMode = true;
 var lift = {
+    exercise: 'Exercise not Selected',
     rpe: 1,
     rpeDesired: 1,
     repsPerformed: 1,
@@ -153,18 +154,14 @@ var rpe_chart = {
         6.0: 57.4
     }
 };
-//var weightLifted = 0;
-var onerm = 0;
 var choosenRpe = 0;
 window.onload = CreateTableFromJSON();
 window.onload = checkFunc(true);
+//window.onload = document.getElementById('weightButton').click();
 slider = document.getElementById('onerm');
 slider.addEventListener('input', () => {
     document.getElementById('weight').innerHTML = `${slider.value} lbs`;
-    // weightLifted = slider.value;
-    onerm = slider.value;
-    // document.getElementById('choosenWeight').innerText = slider.value;
-    if (mode) {
+    if (weightsNeededMode) {
         lift.e1rm = slider.value;
 
     } else {
@@ -173,6 +170,25 @@ slider.addEventListener('input', () => {
 
 
 });
+
+function setExercise(buttonPressed) {
+    switch(buttonPressed.id) {
+        case 'squat':
+          lift.exercise = 'Squat';
+          break;
+        case 'bench':
+          lift.exercise = 'Bench Press';
+          // code block
+          break;
+        case 'dead':
+          lift.exercise = 'Deadlift';
+          // code block
+          break;
+        default:
+          lift.exercise = 'Exercise not Selected';
+      }
+}
+
 function removeFromList(item)
 {   
     console.log(item)
@@ -191,36 +207,27 @@ function addToList(){
         deleteButton.setAttribute('class', 'btn btn-danger btn-sm');
         item.appendChild(deleteButton);
         document.getElementById("list").appendChild(item);
-
 }
 
-
-//function check() {
-//  document.getElementById("myCheck").checked = true;
-//}
-// document.getElementById("myCheck").addEventListener('onchange', (x) => {
-
-//})
-
-function checkFunc(x) {
-    // var checkBox = document.getElementById("myCheck");
-    if (x.id == "e1rmButton") {
-        console.log(x.id);
+function checkFunc(button) {
+    //check if user select mode to calculate "e1rm" or "weight needed"
+    // this mode calculates the user's weight needed
+    if (button.id == "e1rmButton") {
+        if (lift.e1rm) {
+            //slider.value = lift.e1rm;
+            document.getElementById('weight').innerText = `${lift.e1rm} lbs`;
+        }
         document.getElementById('sliderLabel').innerText = "Enter Your 1rm";
-        //document.getElementById('desc').innerText = "Calculate Weight Needed";
-        //document.getElementById('radio1rm').checked = false;
         document.getElementById("percent").innerText = "Weight Needed";
         document.getElementById("percent").style.fontFamily = "Verdana,bold";
         document.getElementById("percent").style.fontSize = "14px";
-        mode = true;
+        weightsNeededMode = true;
     } else {
-        mode = false;
-        //document.getElementById('radio1rm').checked = true;
+        // this mode calculates the user's e1rm
+        weightsNeededMode = false;
         document.getElementById('sliderLabel').innerText = "Enter Weight Lifted";
         document.getElementById("percent").innerHTML = "e1rm";
 
-
-        //document.getElementById('desc').innerHTML = "Calculate E1rm";
     }
 
 };
@@ -232,37 +239,36 @@ let message = {
 };
 let shareContents = newStuff.forEach(el => {message.text += el.innerText.replace('remove', '\n')});
 console.log(message);
-// message.text = message.text.remove('remove','');
 navigator.share(message);
 }
-var tab = document.getElementById("rpe");
+// var tab = document.getElementById("rpe");
 function CreateTableFromJSON() {
-    var indexNumber = ''
+    // var indexNumber = ''
     let headings = Object.keys(rpe_chart);
     headings.forEach((el) => {
         indexNumber = el;
-        var x = document.createElement("TH");
-        var t = document.createTextNode(`Reps ${el}`);
-        x.appendChild(t);
-        document.getElementById("myTr").appendChild(x);
-        x.setAttribute("class", "repCell");
-        x.addEventListener("click", () => {
+        var headRep = document.createElement("TH");
+        var headRepText = document.createTextNode(`Reps ${el}`);
+        headRep.appendChild(headRepText);
+        document.getElementById("myTr").appendChild(headRep);
+        headRep.setAttribute("class", "repCell");
+        headRep.addEventListener("click", () => {
             choosenReps = el;
-            if (mode) {
+            if (weightsNeededMode) {
                 lift.repsDesired = el;
             } else {
                 lift.repsPerformed = el;
             }
-            // document.getElementById('choosenReps').innerText = choosenReps;
             Array.from(document.getElementsByClassName('repCell')).forEach(cell => {
                 cell.style.backgroundColor = "#e3f2fd";
                 cell.style.color = "black";
             })
-            x.style.backgroundColor = "#007BFF";
-            x.style.color = "#FFFFFF";
+            headRep.style.backgroundColor = "#007BFF";
+            headRep.style.color = "#FFFFFF";
 
         })
-        x.addEventListener("click", function actions() {
+        //user clicks a Rep table cell
+        headRep.addEventListener("click", function actions() {
             var resultCell = document.querySelectorAll('#resultCell');
             if (resultCell) { resultCell.forEach(el => el.remove()) };
             for (let [key, value] of Object.entries(rpe_chart[el])) {
@@ -279,19 +285,19 @@ function CreateTableFromJSON() {
                     dRpe.style.backgroundColor = "#007BFF";
                     dRpe.style.color = "#FFFFFF";
                     choosenRpe = key;
-                    if (mode) {
+                    if (weightsNeededMode) {
                         lift.rpeDesired = key;
-                        document.getElementById('perscription').innerText = `${choosenReps} X ${lift.weightNeeded()} @ ${choosenRpe}\nfor: (e1rm: ${onerm})`;
+                        document.getElementById('perscription').innerText = `${lift.exercise}:\n${choosenReps} X ${lift.weightNeeded()} @ ${choosenRpe}\nfor: (e1rm: ${lift.e1rm})`;
                     } else {
                         lift.rpe = key;
-                        document.getElementById('perscription').innerText = `(${choosenReps} X ${onerm} @ ${choosenRpe})\nE1rm = ${lift.e1rmCalc()}`;
+                        document.getElementById('perscription').innerText = `${lift.exercise}:\n(${choosenReps} X ${lift.weightLifted} @ ${choosenRpe})\nE1rm = ${lift.e1rmCalc()}`;
                     }
                 });
                 var d = document.createElement("TD");
                 d.setAttribute("class", "weightCell");
 
-                if (mode) {
-                    var text = document.createTextNode(Math.round((value / 100) * onerm));
+                if (weightsNeededMode) {
+                    var text = document.createTextNode(Math.round((value / 100) * lift.e1rm));
                 } else {
                     var text = document.createTextNode(Math.round(lift.weightLifted / (value / 100)));
                 };
