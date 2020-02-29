@@ -1,5 +1,6 @@
  th, td, p, tr, input {
             font:18px Verdana;
+            font-weight: bolder;
         }
         
         table, th, td, tr
