@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style></style>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-sm">
+            <!-- Navbar content -->
+            <!-- <form class="form-inline"> -->
+                <div class="text-right">
+                <label class="alert alert-primary" role="alert" id="sliderLabel" for="onerm">Enter Your 1rm</label>
+                <div class="btn-group btn-group-sm" role="group" id="buttons" aria-label="Basic example">
+                    <button type="button" id="e1rmButton" onclick="checkFunc(this)"
+                        class="btn btn-primary">Weight</button>
+                    <button type="button" id="weightButton" onclick="checkFunc(this)" class="btn btn-primary"> E1rm
+                    </button>
+                </div>
+                </div>
+            <!-- </form> -->
+            <input type="range" class="custom-range" name="" value='200' min="5.0" max="800.0" step="5" id="onerm"> <span>
+                <div class="alert alert-primary" role="alert" id="weight"></div>
+            </span><br>
+            <div class="card" role="alert">
+                <div class="card-body">
+                    <div class="alert alert-primary" role="alert"><div id="perscription"></div>
+
+                        <button id='addBut' type="button" onclick="addToList()" class="btn btn-primary btn-sm float-right">Add</button></div>
+                
+                    <ul class="list-group" id="list">
+                    </ul>
+                </div>
+            </div>
+        <form action="">
+            <!-- <label for="myCheck" id="desc">Calculate Weight Needed</label>
+    <input checked onclick="checkFunc(self)" type="checkbox" id="myCheck" name="weightNeeded">
+    <label for="radio1rm" id="desc1">Calculate E1rm</label>
+    <input type="checkbox" id="radio1rm" name="e1rm" > -->
+        </form>
+
+        <!-- <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" id="e1rmButton" onclick="checkFunc(this)" class="btn btn-primary">Weight</button>
+            <button type="button" id="weightButton" onclick="checkFunc(this)" class="btn btn-primary">E1rm</button>
+        </div> -->
+        <br>
+
+
+
+
+
+
+        <table class="table-responsive" id="rpe">
+            <caption>Reps</caption>
+            <tr id="myTr">
+            </tr>
+        </table>
+        <!-- <input type="button" onclick="CreateTableFromJSON()" value="Create Table From JSON" /> -->
+        <p id="showData"></p>
+        <table class="table-responsive" id="results">
+            <caption>RPE</caption>
+            <caption id='weigthCap'>Weight</caption>
+            <tr id="r">
+                <th>Rpe</th>
+            </tr>
+            <tr id="percent">
+
+                <th>Percent</th>
+            </tr>
+        </table>
+        <!-- <div class="nowrap"><div id="choosenReps"></div><div id="choosenWeight"></div><div id="choosenRpe"></div></div> -->
+        <script src="scripts/main.js"></script>
+        <!-- <script src="scripts/rpe_chart.js"></script> -->
+    </div>
+</body>
+
+</html>

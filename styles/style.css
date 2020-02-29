@@ -1,0 +1,83 @@
+ th, td, p, tr, input {
+            font:18px Verdana;
+        }
+        
+        table, th, td, tr
+         {
+             border: solid 2px rgba(0, 36, 21, 0.563);
+             border-radius: 2%;
+            border-collapse: collapse;
+            padding: 8px;
+            text-align: center;
+            width: 100px;
+            caption-side: top;
+            /* height: 60px; */
+            user-select: none;
+            -webkit-user-select: none;
+           } 
+       
+       button {
+           padding: 5px;
+           margin: 2px 2px 2px 2px;
+           float: right;
+       }
+       div#perscription {
+           display: inline-block;
+       }
+        #addBut {
+            display: inline-block;
+            /* margin: 0px 0px 0px 80px; */
+        }
+/* nav {
+    background-color: rgba(65, 195, 218, 0.543);
+} */
+       
+        caption{
+            color:red;
+              caption-side: top;
+          }
+        #weigthCap {
+            caption-side: bottom;
+        }
+        /* th {
+            //font-weight:bold;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        th:hover {
+            background-color: green;
+            color: blue;
+            
+
+
+        } */
+        #sliderLabel {
+            text-align: center;
+            /* margin: 150px; */
+        }
+        
+        /* td:hover {
+            background-color:green;
+            color: blue;
+
+        } */
+        .nowrap {
+            white-space: nowrap;
+        }
+        #radio1rm {
+            pointer-events: none;
+        }
+        body {
+            /* background-image: linear-gradient(to bottom right, #e3f2fd, rgba(33, 148, 215, 0.534)); */
+            background-color: #e7eef4;
+        }
+        div.card-body {
+            background-color: #e7eef4;
+            /* background-color: #cae5f8; */
+
+        }
+        div.container-sm {
+            margin-top: 55px;
+        }
+        .buttons { display: block; text-align: right; }
+.buttons .btn { float: none; }
