@@ -224,7 +224,17 @@ function checkFunc(x) {
     }
 
 };
-
+function shareList(){
+let newStuff = Array.from(document.querySelectorAll('#list>li'));
+let message = {
+    title: "RPE Calculator",
+    text: ""
+};
+let shareContents = newStuff.forEach(el => {message.text += el.innerText.replace('remove', '\n')});
+console.log(message);
+// message.text = message.text.remove('remove','');
+navigator.share(message);
+}
 var tab = document.getElementById("rpe");
 function CreateTableFromJSON() {
     var indexNumber = ''
@@ -271,10 +281,10 @@ function CreateTableFromJSON() {
                     choosenRpe = key;
                     if (mode) {
                         lift.rpeDesired = key;
-                        document.getElementById('perscription').innerText = `${choosenReps}X${lift.weightNeeded()}@${choosenRpe} (e1rm: ${onerm})`;
+                        document.getElementById('perscription').innerText = `${choosenReps} X ${lift.weightNeeded()} @ ${choosenRpe}\nfor: (e1rm: ${onerm})`;
                     } else {
                         lift.rpe = key;
-                        document.getElementById('perscription').innerText = `${choosenReps}X${onerm}@${choosenRpe}=${lift.e1rmCalc()}`;
+                        document.getElementById('perscription').innerText = `(${choosenReps} X ${onerm} @ ${choosenRpe})\nE1rm = ${lift.e1rmCalc()}`;
                     }
                 });
                 var d = document.createElement("TD");
