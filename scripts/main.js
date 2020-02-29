@@ -1,6 +1,7 @@
 // var chart = [];
 var weightsNeededMode = true;
 var lift = {
+    exercise: 'Exercise not Selected',
     rpe: 1,
     rpeDesired: 1,
     repsPerformed: 1,
@@ -169,6 +170,25 @@ slider.addEventListener('input', () => {
 
 
 });
+
+function setExercise(buttonPressed) {
+    switch(buttonPressed.id) {
+        case 'squat':
+          lift.exercise = 'Squat';
+          break;
+        case 'bench':
+          lift.exercise = 'Bench Press';
+          // code block
+          break;
+        case 'dead':
+          lift.exercise = 'Deadlift';
+          // code block
+          break;
+        default:
+          lift.exercise = 'Exercise not Selected';
+      }
+}
+
 function removeFromList(item)
 {   
     console.log(item)
@@ -267,10 +287,10 @@ function CreateTableFromJSON() {
                     choosenRpe = key;
                     if (weightsNeededMode) {
                         lift.rpeDesired = key;
-                        document.getElementById('perscription').innerText = `${choosenReps} X ${lift.weightNeeded()} @ ${choosenRpe}\nfor: (e1rm: ${lift.e1rm})`;
+                        document.getElementById('perscription').innerText = `${lift.exercise}:\n${choosenReps} X ${lift.weightNeeded()} @ ${choosenRpe}\nfor: (e1rm: ${lift.e1rm})`;
                     } else {
                         lift.rpe = key;
-                        document.getElementById('perscription').innerText = `(${choosenReps} X ${lift.weightLifted} @ ${choosenRpe})\nE1rm = ${lift.e1rmCalc()}`;
+                        document.getElementById('perscription').innerText = `${lift.exercise}:\n(${choosenReps} X ${lift.weightLifted} @ ${choosenRpe})\nE1rm = ${lift.e1rmCalc()}`;
                     }
                 });
                 var d = document.createElement("TD");
