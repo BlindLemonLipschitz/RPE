@@ -243,7 +243,7 @@ navigator.share(message);
 }
 // var tab = document.getElementById("rpe");
 function CreateTableFromJSON() {
-    // var indexNumber = ''
+     var indexNumber = ''
     let headings = Object.keys(rpe_chart);
     headings.forEach((el) => {
         indexNumber = el;
@@ -270,6 +270,7 @@ function CreateTableFromJSON() {
         //user clicks a Rep table cell
         headRep.addEventListener("click", function actions() {
             var resultCell = document.querySelectorAll('#resultCell');
+            // var resultCell = document.querySelectorAll('.weightCell');
             if (resultCell) { resultCell.forEach(el => el.remove()) };
             for (let [key, value] of Object.entries(rpe_chart[el])) {
                 let dRpe = document.createElement("TD");

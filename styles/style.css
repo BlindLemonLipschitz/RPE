@@ -84,3 +84,7 @@
         }
         .buttons { display: block; text-align: right; }
 .buttons .btn { float: none; }
+th#rowHead, tr#rowHead {
+    background-color: #17a2b8;
+    color: white;
+}
