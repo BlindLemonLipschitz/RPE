@@ -67,8 +67,8 @@ function addToList() {
 function shareList() {
   let newStuff = Array.from(document.querySelectorAll('#list>li'));
   let message = {
-    url: "https://blindlemonlipschitz.github.io",
-    text: ""
+    title: 'RPE Calculator',
+    text: "",
   };
   let shareContents = newStuff.forEach(el => { message.text += el.innerText.replace('remove', '\n') });
   console.log(message);
@@ -77,10 +77,10 @@ function shareList() {
     navigator.share(message).then(() => {
       console.log('Thanks for sharing!');
     })
-    .catch(err => {
-      console.log(`Couldn't share because of`, err.message);
-      alert(`Couldn't share because of`, err.message);
-    });
+      .catch(err => {
+        console.log(`Couldn't share because of`, err.message);
+        alert(`Couldn't share because of`, err.message);
+      });
   } else {
     console.log('web share not supported');
     alert('web share not supported');
@@ -118,18 +118,18 @@ function fillWeightRow(rep) {
 }
 function clearSelectedCells(all = false) {
   let rpeRowSelect = document.getElementsByClassName('selected');
-  if (all){
+  if (all) {
     if (rpeRowSelect.length) {
-      for (i=0; i<rpeRowSelect.length; i++) {
-      rpeRowSelect[i].className = '';
+      for (i = 0; i < rpeRowSelect.length; i++) {
+        rpeRowSelect[i].className = '';
       }
     }
     console.log(rpeRowSelect)
     rpeRowSelect[0].className = '';
   }
-        if (rpeRowSelect.length) {
-          rpeRowSelect[0].className = '';
-        }
+  if (rpeRowSelect.length) {
+    rpeRowSelect[0].className = '';
+  }
 }
 table.forEach(element => {
   var selectedCells = element.getElementsByClassName('selected');
