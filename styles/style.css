@@ -1,0 +1,55 @@
+table {
+    cursor: text;
+    border: 3px;
+    /* margin: 10px; */
+  }
+  tr {
+    /* background-color:white; */
+    background-color: var(--white);
+  }
+  td {
+    font-size: 14;
+    cursor: default;
+    padding: 3px;
+    width: 60px;
+  }
+  th {
+    /* background: rgb(0, 0, 0, 0.03); */
+    background-color: var(--light);
+    pointer-events: none;
+  }
+  td.selected {
+    background-color: var(--warning);
+  }
+  #empty {
+    pointer-events: none;
+    background-color: var(--light);
+    /* background: rgb(0, 0, 0, 0.03); */
+  }
+  .container {
+    /* margin: 40px; */
+  }
+  .dropdown {
+    margin: 10px;
+  }
+  .row {
+    margin: 10px;
+  }
+  #slider {
+    padding: 20px;
+  }
+  .btn {
+    margin: 0px;
+  }
+  #remove {
+    float: right;
+
+  }
+#warning {
+  color: var(--danger);
+
+}
+  /* ul {
+    //margin-right: 10px;
+
+  } */

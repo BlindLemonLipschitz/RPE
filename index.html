@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table stuff</title>
+</head>
+
+<body>
+  <div class="container bg-light">
+    <div class="card bg-transparent">
+      <div class="row">
+        <div class="col">
+          <div class="dropdown" id="exercise">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="exercise" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Choose Lift
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button onclick='exerciseSelect(this)' id='Squat' class="dropdown-item" type="button">Squat</button>
+              <button onclick='exerciseSelect(this)' id='Bench' class="dropdown-item" type="button">Bench Press</button>
+              <button onclick='exerciseSelect(this)' id='Deadlift' class="dropdown-item" type="button">Deadlift</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- <div class="btn-group" role="group" aria-label="second group"> -->
+            <div class="dropdown" id="mode">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="drop" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Calculate weight needed
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button onclick='exerciseSelect(this)' class="dropdown-item" id='Calculate e1rm' type="button">Calculate
+                  e1rm</button>
+                <button onclick='exerciseSelect(this)' class="dropdown-item" id='Calculate weight needed'
+                  type="button">Calculate weight needed</button>
+              </div>
+            </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card" id="slider">
+    <label id='sliderLabel' for="onerm">Weight in lbs: </label>
+    <input type="range" class="custom-range" name="" value='200' min="5.0" max="1200.0" step="5" id="onerm">
+  </div>
+  <table class="table table-bordered table-responsive">
+    <tbody>
+      <tr id="reps">
+        <th>Reps</th>
+        <td id="repCell">1</td>
+        <td id="repCell">2</td>
+        <td id="repCell">3</td>
+        <td id="repCell">4</td>
+        <td id="repCell">5</td>
+        <td id="repCell">6</td>
+        <td id="repCell">7</td>
+        <td id="repCell">8</td>
+        <td id="repCell">9</td>
+        <td id="repCell">10</td>
+        <td id="repCell">11</td>
+        <td id="repCell">12</td>
+      </tr>
+      <tr id="rpe">
+        <th>Rpe</th>
+        <td id="empty"></td>
+        <td>6</td>
+        <td>6.5</td>
+        <td>7</td>
+        <td>7.5</td>
+        <td>8</td>
+        <td>8.5</td>
+        <td>9</td>
+        <td>9.5</td>
+        <td>10</td>
+        <td id="empty"></td>
+        <td id="empty"></td>
+      </tr>
+      <tr id="weight">
+        <th>Weight</th>
+        <td id="empty"></td>
+        <td id="6"></td>
+        <td id="6.5"></td>
+        <td id="7"></td>
+        <td id="7.5"></td>
+        <td id="8"></td>
+        <td id="8.5"></td>
+        <td id="9"></td>
+        <td id="9.5"></td>
+        <td id="10"></td>
+        <td id="empty"></td>
+        <td id="empty"></td>
+      </tr>
+
+    </tbody>
+
+
+
+
+  </table>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card" style="margin: 10px;">
+        <div id="perscription" class="card-header font-weight-light">
+          Perscription...
+        </div>
+        <ul class="list-group list-group-flush" id="list">
+          <button id='addBut' type="button" onclick="addToList()" class="btn btn-primary float-right">Add</button>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-4"></div><div class="col-8">
+      <button id='shareBut' type="button" onclick="shareList()" class="btn btn-info float-right">Share</button>
+    </div>
+  </div>
+
+  <script src="scripts/rpeChart.js"></script>
+  <script src="scripts/script.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
