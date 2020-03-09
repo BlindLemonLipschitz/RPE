@@ -44,26 +44,28 @@ function exerciseSelect(button) {
 // List Functions
 function removeFromList(item) {
   console.log(item)
-  this.parentNode.parentNode.removeChild(this.parentNode)
+  //this.parentNode.parentNode.removeChild(this.parentNode)
+  item.parentNode.parentNode.removeChild(item.parentNode)
 }
 
 function addToList() {
-  let item = document.createElement("LI");
-  item.setAttribute('class', 'list-group-item list-group-item-success');
-  let deleteButton = document.createElement("button");
-  let script = document.getElementById('perscription');
-  let text = document.createTextNode(script.innerHTML);
+  let script = document.getElementById('perscription').innerHTML;
+  let item = `<li class="list-group-item list-group-item-success">${script}<button type="button" onclick='removeFromList(this)' class="btn btn-danger btn-sm" id="remove">remove</button></li>`
+  // let item = document.createElement("LI");
+  // item.setAttribute('class', 'list-group-item list-group-item-success');
+  // let deleteButton = document.createElement("button");
+  // let text = document.createTextNode(script.innerHTML);
   // item.appendChild(text);
-  item.innerHTML = script.innerHTML;
-  deleteButton.setAttribute('type', 'button');
-  deleteButton.innerHTML = "remove";
-  deleteButton.onclick = removeFromList;
-  deleteButton.setAttribute('class', 'btn btn-danger btn-sm');
-  deleteButton.setAttribute('id', 'remove');
-  item.appendChild(deleteButton);
-  document.getElementById("list").appendChild(item);
+  // item.innerHTML = script.innerHTML;
+  // deleteButton.setAttribute('type', 'button');
+  // deleteButton.innerHTML = "remove";
+  // deleteButton.onclick = removeFromList;
+  // deleteButton.setAttribute('class', 'btn btn-danger btn-sm');
+  // deleteButton.setAttribute('id', 'remove');
+  // item.appendChild(deleteButton);
+  //let itemEl = document.createElement(item);
+  document.getElementById("list").insertAdjacentHTML('beforeend',item);
 }
-
 function shareList() {
   let newStuff = Array.from(document.querySelectorAll('#list>li'));
   let message = {
