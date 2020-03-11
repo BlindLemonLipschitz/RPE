@@ -51,19 +51,6 @@ function removeFromList(item) {
 function addToList() {
   let script = document.getElementById('perscription').innerHTML;
   let item = `<li class="list-group-item list-group-item-success">${script}<button type="button" onclick='removeFromList(this)' class="btn btn-danger btn-sm" id="remove">remove</button></li>`
-  // let item = document.createElement("LI");
-  // item.setAttribute('class', 'list-group-item list-group-item-success');
-  // let deleteButton = document.createElement("button");
-  // let text = document.createTextNode(script.innerHTML);
-  // item.appendChild(text);
-  // item.innerHTML = script.innerHTML;
-  // deleteButton.setAttribute('type', 'button');
-  // deleteButton.innerHTML = "remove";
-  // deleteButton.onclick = removeFromList;
-  // deleteButton.setAttribute('class', 'btn btn-danger btn-sm');
-  // deleteButton.setAttribute('id', 'remove');
-  // item.appendChild(deleteButton);
-  //let itemEl = document.createElement(item);
   document.getElementById("list").insertAdjacentHTML('beforeend',item);
 }
 function shareList() {
@@ -80,8 +67,8 @@ function shareList() {
       console.log('Thanks for sharing!');
     })
       .catch(err => {
-        console.log(`Couldn't share because of`, err.message);
-        alert(`Couldn't share because of`, err.message);
+        console.log(`Couldn't share because of, ${err.message}`);
+        alert(`Couldn't share because of ${err.message}`);
       });
   } else {
     console.log('web share not supported');

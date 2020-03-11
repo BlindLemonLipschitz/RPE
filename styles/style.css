@@ -1,12 +1,17 @@
 table {
     cursor: text;
     border: 3px;
+    table-layout: fixed ;
+    width: 100%;
     /* margin: 10px; */
   }
   /* Sticky Headers */
   .table.sticky th {
     position: sticky;
     left: 0;
+    background-color: var(--primary);
+    pointer-events: none;
+    color: var(--light);
   }
   .table.sticky th::after {
     content: "";
@@ -30,12 +35,7 @@ table {
     padding: 3px;
     width: 60px;
   }
-  th {
-    /* background: rgb(0, 0, 0, 0.03); */
-    background-color: var(--primary);
-    pointer-events: none;
-    color: var(--light);
-  }
+  
   td.selected {
     background-color: var(--warning);
   }
