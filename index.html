@@ -35,18 +35,18 @@
         </div>
         <div class="col">
           <!-- <div class="btn-group" role="group" aria-label="second group"> -->
-            <div class="dropdown" id="mode">
-              <button class="btn btn-primary dropdown-toggle" type="button" id="drop" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Calculate weight needed
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button onclick='exerciseSelect(this)' class="dropdown-item" id='Calculate e1rm' type="button">Calculate
-                  e1rm</button>
-                <button onclick='exerciseSelect(this)' class="dropdown-item" id='Calculate weight needed'
-                  type="button">Calculate weight needed</button>
-              </div>
+          <div class="dropdown" id="mode">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="drop" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Calculate weight needed
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button onclick='exerciseSelect(this)' class="dropdown-item" id='Calculate e1rm' type="button">Calculate
+                e1rm</button>
+              <button onclick='exerciseSelect(this)' class="dropdown-item" id='Calculate weight needed'
+                type="button">Calculate weight needed</button>
             </div>
+          </div>
           <!-- </div> -->
         </div>
       </div>
@@ -114,19 +114,25 @@
   <div class="row">
     <div class="col-12">
       <div class="card" style="margin: 0px;">
-        <div id="perscription" class="card-header font-weight-light">
-          Perscription...
-        </div>
-        <ul class="list-group list-group-flush" id="list">
+        <div id='cd' class="card-header font-weight-light">
+          <div id="perscription"> Perscription... </div>
           <button id='addBut' type="button" onclick="addToList()" class="btn btn-primary float-right">Add</button>
-        </ul>
+        </div>
+        <!-- <button id='addBut' type="button" onclick="addToList()" class="btn btn-primary float-right">Add</button> -->
       </div>
     </div>
+  </div>
+  <ul class="list-group list-group-flush" id="list">
+    <!-- <button id='addBut' type="button" onclick="addToList()" class="btn btn-primary float-right">Add</button></li> -->
+  </ul>
+  </div>
+  </div>
 
   </div>
   </div>
   <div class="row">
-    <div class="col-4"></div><div class="col-8">
+    <div class="col-4"></div>
+    <div class="col-8">
       <button id='shareBut' type="button" onclick="shareList()" class="btn btn-info float-right">Share</button>
     </div>
   </div>
