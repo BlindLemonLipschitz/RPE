@@ -9,9 +9,9 @@ table {
     left: 0;
   }
 
-body {
-    overflow: hidden;
-}
+
+    
+
 
   .table.sticky th::after {
     content: "";
