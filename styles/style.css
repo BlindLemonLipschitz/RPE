@@ -13,6 +13,11 @@ table {
     pointer-events: none;
     color: var(--light);
   }
+
+
+    
+
+
   .table.sticky th::after {
     content: "";
     height: 100%;
@@ -23,6 +28,12 @@ table {
     top: 0;
     background-color: var(--secondary);
 
+  }
+.list-group {
+    max-height: 80px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
   }
   
   tr {
