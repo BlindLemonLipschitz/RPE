@@ -113,8 +113,8 @@ function clearSelectedCells(all = false) {
         rpeRowSelect[i].className = '';
       }
     }
-    console.log(rpeRowSelect)
-    rpeRowSelect[0].className = '';
+    //console.log(rpeRowSelect)
+    //rpeRowSelect[0].className = '';
   }
   if (rpeRowSelect.length) {
     rpeRowSelect[0].className = '';

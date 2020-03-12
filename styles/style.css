@@ -13,6 +13,9 @@ table {
     pointer-events: none;
     color: var(--light);
   }
+  .container{
+    margin-top: 20px;
+  }
 
 
     
@@ -57,7 +60,7 @@ table {
     /* background: rgb(0, 0, 0, 0.03); */
   }
   .dropdown {
-    margin: 10px;
+    margin: 20px;
   }
   .row {
     margin: 0px;
@@ -97,6 +100,14 @@ li {
 }
 #perscription {
   display: inline-block;
+}
+#refresh {
+  background-color: var(--info);
+  color: var(--light);
+  float: left;
+  padding: 8px 12px;
+  text-align: left;
+  border-radius: 5px;
 }
   /* ul {
     //margin-right: 10px;
