@@ -50,7 +50,7 @@ function removeFromList(item) {
 
 function addToList() {
   let script = document.getElementById('perscription').innerHTML;
-  let item = `<li class="list-group-item list-group-item-success">${script}<button type="button" onclick='removeFromList(this)' class="btn btn-danger btn-sm" id="remove">remove</button></li>`
+  let item = `<li class="list-group-item list-group-item-success">${script}<button type="button" onclick='removeFromList(this)' class="btn btn-danger btn-sm" id="remove"><i class="fa fa-trash-o" aria-hidden="true"></i></button></li>`
   document.getElementById("list").insertAdjacentHTML('afterbegin',item);
 }
 function shareList() {

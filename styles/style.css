@@ -92,6 +92,12 @@ li {
   margin-right: 10px;
   background-color: var(--light);
 }
+#addbutt{
+  display: inline-block;
+}
+#perscription {
+  display: inline-block;
+}
   /* ul {
     //margin-right: 10px;
 
