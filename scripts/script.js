@@ -1,4 +1,5 @@
-var table = document.querySelectorAll('TR')
+var table = document.querySelectorAll('TR');
+var td;
 var selected = {
   exercise: '<div id="warning">Exercise not Selected</div>',
   reps: "",
@@ -26,6 +27,10 @@ window.onload = updateSliderLabel();
 slider.addEventListener('input', () => {
   selected.weight = slider.value;
   updateSliderLabel();
+  //new 
+
+  fillWeightRow(td.innerText);
+  fillPerscription(selected.weightsNeededMode);
 });
 
 // Used for exercise selection + mode selection
@@ -51,7 +56,7 @@ function removeFromList(item) {
 function addToList() {
   let script = document.getElementById('perscription').innerHTML;
   let item = `<li class="list-group-item list-group-item-success">${script}<button type="button" onclick='removeFromList(this)' class="btn btn-danger btn-sm" id="remove"><i class="fa fa-trash-o" aria-hidden="true"></i></button></li>`
-  document.getElementById("list").insertAdjacentHTML('afterbegin',item);
+  document.getElementById("list").insertAdjacentHTML('afterbegin', item);
 }
 function shareList() {
   let newStuff = Array.from(document.querySelectorAll('#list>li'));
@@ -124,7 +129,8 @@ table.forEach(element => {
   var selectedCells = element.getElementsByClassName('selected');
   // TODO: try event bubbling to reduce listeners
   element.addEventListener('click', function (e) {
-    var td = e.target;
+    td = e.target;
+    // var td = e.target;
     let parent = td.parentElement.id;
     console.log(parent);
 
